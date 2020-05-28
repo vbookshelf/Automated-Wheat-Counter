@@ -25,10 +25,11 @@ Validation set MAE: 5.65
 
 -x-
 
-The process used to build and train the model is described in this Kaggle notebook:
+The process used to build and train the model is described in this Kaggle notebook:<br>
 
 
 The model was fine tuned using data made available during the Kaggle Global Wheat Detection competition. The data was released under an open source MIT license.<br>
 https://www.kaggle.com/c/global-wheat-detection
 
 
+The frontend and backend code is available in this repo. The code is set up to be run as a Docker container. The .dockerignore file may not be visible. Please create this file if you don't see it. I suggest that you deploy on a Linux server running Ubuntu 16.04. In this repo I've included a pdf that explains the steps for installing Docker and Docker Compose on a Linux server.

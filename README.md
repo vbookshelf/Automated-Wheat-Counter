@@ -8,7 +8,7 @@ Demo App: http://wheatcounter.test.woza.work/
 
 <br>
 
-<img src="http://wheatcounter.test.woza.work/assets/app_pic3.png" width="350"></img>
+<img src="http://wheatcounter.test.woza.work/assets/app_pic7.png" width="350"></img>
 
 <br>
 

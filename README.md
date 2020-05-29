@@ -26,9 +26,9 @@ https://www.kaggle.com/c/global-wheat-detection
 
 #### Validation Results
 
-Validation set percentage error: 20.5 %
-
-Validation set MAE: 5.03
+> Validation set percentage error: 20.5 %
+>
+> Validation set MAE: 5.03
 
 
 #### Server Deployment

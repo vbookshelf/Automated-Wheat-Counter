@@ -4,7 +4,7 @@ A flask web app that automatically counts wheat heads on wheat photos.
 [ Under Construction ]
 
 The demo app will be live only until end June 2020.<br>
-Demo App: 
+Demo App: http://wheatcounter.test.woza.work/
 
 <br>
 
@@ -12,24 +12,24 @@ Demo App:
 
 <br>
 
-My goal for this project was to build and deploy a flask web app that can automatically count wheat heads on wheat photos. A user is able to submit a photo and get an instant prediction.
+My goal for this project was to build and deploy a flask web app that can automatically count wheat heads on wheat photos.
 
-This app could help researchers get quick rough estimates of wheat density.
+This app could help researchers get quick estimates of wheat density.
+
+
+The process used to build and train the models is described in this Kaggle notebook:<br>
+
+
+The two models that power this app were trained using data made available during the Kaggle Global Wheat Detection competition. The data was released under an open source MIT license.<br>
+https://www.kaggle.com/c/global-wheat-detection
+
 
 #### Validation Results
 
-Validation set percentage error: 23.03 %
+Validation set percentage error: 20.5 %
 
-Validation set MAE: 5.65
+Validation set MAE: 5.03
 
-
--x-
-
-The process used to build and train the model is described in this Kaggle notebook:<br>
-
-
-The model was fine tuned using data made available during the Kaggle Global Wheat Detection competition. The data was released under an open source MIT license.<br>
-https://www.kaggle.com/c/global-wheat-detection
 
 #### Server Deployment
 
@@ -37,7 +37,7 @@ The frontend and backend code is available in this repo. The models were too lar
 
 
 
-The code is set up to be run as a Docker container. The code is based on this video tutorial:
+The code is set up to be run as a Docker container. It's based on this video tutorial:
 
 Julian Nash docker and flask video tutorial<br>
 https://www.youtube.com/watch?v=dVEjSmKFUVI

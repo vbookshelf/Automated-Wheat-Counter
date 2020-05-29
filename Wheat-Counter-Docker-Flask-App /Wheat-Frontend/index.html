@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Automated Wheat Counter</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Use computer vision to automatically count wheat heads on wheat photos.">
+
+
+
+<!--CSS Stylesheets-->
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/wheat.css">
+
+<!--Link to Font Awesome icons-->
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.4.2/css/all.css' integrity='sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns' crossorigin='anonymous'>
+
+
+
+<!--Link to fonts from google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+
+<link rel="shortcut icon" type="image/png" href="robotfavicon.png">
+
+
+<style>
+html,body,h2,h3,h4,p,h5,li {font-family: Roboto, sans-serif}
+</style>
+
+
+</head>
+
+
+
+
+<body class="bground-color">
+
+
+
+<!-- w3-content defines a container for fixed size centered content,
+and is wrapped around the whole page content. -->
+<div class="w3-content" style="max-width:960px">
+
+
+
+<!-- 1. HOME PAGE -->
+<div class="tabbed w3-animate-opacity w3-white" id="home">
+	
+	
+<!-- Top Bar -->
+<div class='w3-center'>
+	
+	<p class="space-letters-large w3-small w3-tag bground-color w3-text-teal w3-border w3-round">
+		<a class="change-size" href="faq.html"><b>About</b></a>
+</div>
+
+
+
+
+	
+
+<!-- Front page image -->
+<!-- This image will be replaced once the js code runs. -->
+<div class="w3-center w3-padding-bottom">
+	
+
+	<img id="selected-image" class="w3-round adjust-image" src="assets/3c1168fe0.jpg" height="300" alt="Image for analysis"> 
+	
+</div> 
+
+
+
+
+<!-- Button -->
+<div id="btnn" class="w3-center">
+	
+	
+	<button class="w3-btn w3-deep-orange w3-hover-blue w3-round w3-margin-bottom adjust-spacing btn-font w3-padding w3-space-letters w3-text-white" onclick="setTimeout(simulateClick.bind(null, 'image-selector'), 200)"><i class='fas fa-camera w3-padding-right' style='font-size:15px'></i>
+		<b>Submit Image</b></button>
+		
+	<button class="w3-btn w3-green w3-hover-blue w3-round w3-margin-bottom adjust-spacing btn-font w3-padding w3-space-letters w3-text-white" onclick="setTimeout(simulateClick.bind(null, 'predict-button'), 200)">
+		<b>PREDICT >></b></button>
+		
+		
+</div> 
+
+<div id="" class="w3-center">
+	
+	
+	<!--<p class="w3-text-teal">jpeg or png</p>-->
+</div> 
+
+
+
+
+
+<!-- Progress Bar 
+Just here for graphics.
+The functionality was not implemented because it slows down the model download 
+and causes it to fail.-->
+<div class="w3-light-grey side-margin w3-opacity">
+<div  id="myBar" class="w3-container w3-blue" style="height:5px;width:100%"></div>
+</div>
+
+
+<!-- Results Box -->
+<div class="w3-center w3-border add-margin side-margin w3-round w3-sand
+text-color space-letters bottom-margin dont-break-out">
+
+	<p>Automated Wheat Counter</p>
+	
+		
+		<p class="progress-spinner w3-text-grey w3-opacity"><i class="fa fa-spinner fa-spin" style="font-size:24px"></i><br>Counting...</p>
+		
+		<p class="w3-text-blue pred-text-size" id="count-prediction">
+			
+			<span class="w3-text-blue explain-text-size">
+				Submit an image, then click predict.</span></p>
+	<p class="w3-text-grey" id="file-name">---</p>
+</div>
+
+
+
+
+<!-- Bottom Bar -->
+<div class='w3-center w3-padding-bottom'>
+	<p class="space-letters">
+		<a class="w3-small w3-hover-text-deep-orange text-color" href="https://woza.work/">
+		<b>woza.work</b></a>
+	</p>
+</div>
+
+
+</div><!--END OF HOME PAGE-->
+
+
+
+<!-- We simulate clicks on these two. -->
+<div class="hide">
+	<button id='predict-button'>Predict</button>
+</div>
+
+  
+
+<div class="hide">
+	<input id="image-selector" type="file">
+</div>
+<!--===================================-->
+
+
+<!-- Load jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+
+</script>
+
+<script>
+
+$('.progress-spinner').hide();
+
+function simulateClick(tabID) {
+	
+	document.getElementById(tabID).click();
+}
+
+	// Note: Create a new html tag that does not resize the image. Read from this tag.
+
+    let base64Image;
+	
+    $("#image-selector").change(function() {
+        let reader = new FileReader();
+        reader.onload = function(e) {
+            let dataURL = reader.result;
+			
+			
+			
+			console.log(dataURL);
+			
+			// Display the image the user has submitted on the web page.
+			// Do this by changing the src attribute of the elemnt with
+			// the following id: #selected-image
+            $('#selected-image').attr("src", dataURL);
+			
+			// The dataURL is the image in the form of a string.
+			// If you print(dataURL) you will see the string and it's prefix.
+			// We need to remove the prefix before we can convert the string
+			// into an image. This conversion is done on the server side.
+			// Here we are removing the prefix from the dataURL.
+            dataURL = dataURL.replace("data:image/jpg;base64,","");
+            dataURL = dataURL.replace("data:image/jpeg;base64,","");
+            dataURL = dataURL.replace("data:image/png;base64,","");
+			
+			base64Image = dataURL;
+			
+			
+            console.log(base64Image);
+        }
+		
+		console.log('hello');
+		
+		// Read the image
+        reader.readAsDataURL($("#image-selector")[0].files[0]);
+		
+		// Get the image file name
+		fname = $("#image-selector")[0].files[0].name;
+		
+		console.log(fname);
+		
+		// Clear the previous prediction.
+        $("#count-prediction").text("");
+		$("#file-name").text("");
+        
+    });
+	
+	
+    // This executes when the user clicks the predict button.
+    $("#predict-button").click(function(){
+		
+		// Hide the model loading spinner
+		// This line of html gets hidden:
+		// <div class="progress-spinner">Ai is Loading...</div>
+		$('.progress-spinner').show();
+		
+		// Display the image file name of the image that the user submitted.
+		$("#file-name").text(fname);
+		
+        let message = {
+            image: base64Image
+        }
+		
+        console.log(message);
+		
+		
+		// Send the image to the server and receive the response.
+		//........................................................
+		// Here set the endpoint URL to where you want to send the image.
+		// Note that we send the image to this endpoint: http://0.0.0.0:5000/predict. But
+		// because we have a created static html file, we will go to this
+		// address in our web browser: http://0.0.0.0:5000/static/predict.html.
+        $.post("http://139.59.82.197/predict", JSON.stringify(message), function(response){
+			
+			// Receive the response (prediction) from the server. 
+			// Put the response in the html element that has 
+			// the following id: #count-prediction
+            $("#count-prediction").text(response.prediction.wheat_count);
+			
+			// Hide the spinner.
+			$('.progress-spinner').hide();
+			
+			// Display the image file name.
+			//$("#file-name").text(fname);
+			
+			
+            console.log(response);
+        });
+    });
+	
+</script>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</div> <!-- w3-content -->
+
+</body>
+</html>
+

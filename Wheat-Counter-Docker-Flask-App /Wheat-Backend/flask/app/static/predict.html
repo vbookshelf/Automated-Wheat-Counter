@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>deeplizard predict image app</title>
+    <style>
+        * {
+            font-size:30px;
+        }
+		
+		* {
+			
+			padding: 10px;
+		}
+    </style>
+</head>
+
+<body>    
+    <input id="image-selector" type="file">    
+    <button id="predict-button">Predict</button>
+    <p style="font-weight:bold">Predictions</p>    
+    <p>Wheat count: <span id="count-prediction"></span></p>
+    
+    <img id="selected-image" height="250" src=""/>
+	
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	
+<script>
+	
+	// Make sure that this ip address matches the server you are using.
+	var server_ip_address_and_endpoint = "http://139.59.82.197/predict"
+	
+	// Access this html page by navigating to:
+	// server_ip/static/predict.html
+	// This page can be used for testing without having  
+	// to use wheatcounter.test.woza.work.
+	
+	
+
+
+    let base64Image;
+	
+    $("#image-selector").change(function() {
+        let reader = new FileReader();
+        reader.onload = function(e) {
+            let dataURL = reader.result;
+			
+			console.log(dataURL);
+			
+			// Display the image the user has submitted on the web page.
+			// Do this by changing the src attribute of the elemnt with
+			// the following id: #selected-image
+            $('#selected-image').attr("src", dataURL);
+			
+			// The dataURL is the image in the form of a string.
+			// If you print(dataURL) you will see the string and it's prefix.
+			// We need to remove the prefix before we can convert the string
+			// into an image. This conversion is done on the server side.
+			// Here we are removing the prefix from the dataURL.
+            dataURL = dataURL.replace("data:image/jpg;base64,","");
+            dataURL = dataURL.replace("data:image/jpeg;base64,","");
+            dataURL = dataURL.replace("data:image/png;base64,","");
+			
+			base64Image = dataURL;
+			
+			
+            console.log(base64Image);
+        }
+		
+		console.log('hello');
+        reader.readAsDataURL($("#image-selector")[0].files[0]);
+		
+		// Clear the previous prediction.
+        $("#count-prediction").text("");
+        
+    });
+	
+	
+    // This executes when the user clicks the predict button.
+    $("#predict-button").click(function(){
+        let message = {
+            image: base64Image
+        }
+		
+        console.log(message);
+		
+		
+		// Send the image to the server and receive the response.
+		//........................................................
+		// Here set the endpoint URL to where you want to send the image.
+		// Note that we send the image to this endpoint: http://0.0.0.0:5000/predict. But
+		// because we have a created static html file, we will go to this
+		// address in our web browser: http://0.0.0.0:5000/static/predict.html.
+        $.post(server_ip_address_and_endpoint, JSON.stringify(message), function(response){
+			
+			// Receive the response (prediction) from the server. 
+			// Put the response in the html element that has 
+			// the following id: #count-prediction
+            $("#count-prediction").text(response.prediction.wheat_count);
+            console.log(response);
+        });
+    });
+	
+</script>
+
+</body>
+
+</html>

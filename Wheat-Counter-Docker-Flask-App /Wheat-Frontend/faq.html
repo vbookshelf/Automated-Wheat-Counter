@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+<meta charset="utf-8">
+<title>About</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<!--CSS Stylesheets-->
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/woza.css">
+
+<!--Link to Font Awesome icons-->
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.4.2/css/all.css' integrity='sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns' crossorigin='anonymous'>
+
+
+<!--Link to fonts from google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+<link rel="shortcut icon" type="image/png" href="robotfavicon.png">
+
+</head>
+
+
+
+
+
+
+<body class="bground-color">
+<!-- w3-content defines a container for fixed size centered content,
+and is wrapped around the whole page content. -->
+
+<div style="max-width:1500px">
+<!-- 1. HOME PAGE TAB -->
+<div class="w3-animate-opacity w3-padding w3-margin-bottom bground-color">
+	
+
+	
+
+
+<!-- 960 width region -->
+<div class='w3-content w3-padding w3-white' style="max-width:960px">
+	
+
+
+
+<div class="w3-center title adjust-fontcolor logo w3-center w3-margin">
+	
+	<img class='w3-round' src="assets/robot.jpg" alt="robot" height='200' width='200'>
+	
+</div>
+
+
+<!-- Top Bar -->
+<div class='w3-center'>
+	
+	<p class="space-letters w3-tag bground-color w3-text-teal w3-border w3-round">
+		<a href="index.html"><i class="fa fa-angle-double-left" style="font-size:20px"></i><b> Go back to the future...</b></a>
+</div>
+	
+
+
+
+<div class='bottom-margin'>
+	
+	
+	<!-- Start of block -->
+	<div class='side-margin1 w3-round text-color space-letters 
+	w3-margin-bottom'>
+	
+			<p class='w3-text-pink topp-margin'><b>Design Status</b></p>
+			
+			<p>This is a prototype.</p>
+			
+			
+			<p class='w3-text-pink topp-margin'><b>Purpose</b></p>
+			
+			<p>This flask web app uses computer vision to automatically count wheat heads on 
+				wheat photos. Manual wheat counting is tedious. This is an attempt
+				to solve that problem.</p>
+			
+				
+			
+			
+			
+			<p class='w3-text-pink topp-margin'><b>Dataset</b></p>
+			
+			<p>The two models that power this app were trained using data from the Kaggle
+				<a href="https://www.kaggle.com/c/global-wheat-detection" target='_blank' class="w3-text-blue">Global Wheat Detection</a> competition. </p>
+			
+			<p>The data is licenced under an open source MIT licence.</p>
+			
+			
+
+			
+			<p class='w3-text-pink topp-margin'><b>More Info</b></p>
+			
+			<p>1-- The models were trained using image augmentation to help them generalize i.e. produce accurate results irrespective of where in the world the photos were taken. However, this capability needs to be tested further.</p>
+			
+			<p>2-- The models were trained on wheat images from the following regions:<br>
+				usask_1, arvalis_1, arvalis_3, inrae_1, ethz_1, rres_1</p>
+				
+				<p>If you submit dataset images that are from these
+				regions then the output from the app will be very accurate. This is
+				because the models memorized those images during training. If you want to test this app it's better to submit images that were not part of the training set. These would be images from the validation set or from the private test set.</p>
+			
+			<p>3-- Model performance was validated on photos from these regions:<br>
+				usask_1, arvalis_2</p>
+			
+			<p>4-- Due to server costs this demo will be live only until the end of June 2020. 
+				However, all the code is available 
+				on Github under an MIT licence. If you find this app helpful you are welcome to use the code to host this app on your own server.</p>
+			
+			
+
+			<p class='w3-text-pink topp-margin'><b>Published Design</b></p>
+			
+			<p>The design code and the step-by-step process used to train and test the models has been published on Kaggle. You can find the open source notebook <a href="https://www.kaggle.com/vbookshelf/tuberculosis-tb-analyzer-web-app" target='_blank' class="w3-text-blue">here</a>. The test results are also available in the notebook.</p>
+			
+			
+			
+			
+			
+		
+	</div>
+	<!-- End of block -->
+	
+</div>
+
+
+
+
+
+</div><!-- End of 960 width region -->
+
+<!-- Bottom Bar -->
+<div class='w3-center w3-margin-top'>
+<p class="space-letters"><a class="w3-small w3-hover-text-deep-orange text-color" href="https://woza.work/">
+		<b>woza.work</b></a>
+	</p>
+</div>
+
+
+
+</div><!--END OF HOME PAGE TAB-->
+</div> <!-- w3-content -->
+</body>
+</html>
+

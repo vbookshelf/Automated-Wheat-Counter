@@ -18,10 +18,13 @@ This app could help researchers get quick estimates of wheat density.
 
 
 The process used to build and train the models is described in this Kaggle notebook:<br>
+https://www.kaggle.com/vbookshelf/automated-wheat-counter-pytorch-flask-app
 
 
 The two models that power this app were trained using data made available during the Kaggle Global Wheat Detection competition. The data was released under an open source MIT license.<br>
 https://www.kaggle.com/c/global-wheat-detection
+
+<br>
 
 
 #### Validation Results
@@ -29,6 +32,8 @@ https://www.kaggle.com/c/global-wheat-detection
 > Validation set percentage error: 20.5 %
 >
 > Validation set MAE: 5.03
+
+<br>
 
 
 #### Server Deployment

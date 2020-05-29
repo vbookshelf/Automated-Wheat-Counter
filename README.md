@@ -33,7 +33,11 @@ https://www.kaggle.com/c/global-wheat-detection
 
 #### Server Deployment
 
-The frontend and backend code is available in this repo. The code is set up to be run as a Docker container. The code is based on this video tutorial:
+The frontend and backend code is available in this repo. The models were too large to be uploaded. Please download them from the Kaggle notebook. There are two models: seg_model.pt and reg_model.pt. Please put both models into the folder called 'flask' before uploading the folder called 'wheat-backend' to your server.
+
+
+
+The code is set up to be run as a Docker container. The code is based on this video tutorial:
 
 Julian Nash docker and flask video tutorial<br>
 https://www.youtube.com/watch?v=dVEjSmKFUVI

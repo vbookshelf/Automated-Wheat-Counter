@@ -1,7 +1,6 @@
 ## Automated-Wheat-Counter
 A flask web app that automatically counts wheat heads on wheat photos.
 
-[ Under Construction ]
 
 This demo app will be live until 30 June 2020.<br>
 Demo App: http://wheatcounter.test.woza.work/
@@ -18,6 +17,7 @@ This app could help researchers get quick estimates of wheat density.
 
 
 The process used to build and train the models is described in this Kaggle notebook:<br>
+https://www.kaggle.com/vbookshelf/automated-wheat-counter-pytorch-flask-app
 
 
 

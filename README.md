@@ -3,7 +3,7 @@ A flask web app that automatically counts wheat heads on wheat photos.
 
 [ Under Construction ]
 
-The demo app will be live only until end June 2020.<br>
+This demo app will be live until 30 June 2020.<br>
 Demo App: http://wheatcounter.test.woza.work/
 
 <br>

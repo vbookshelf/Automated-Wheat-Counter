@@ -38,6 +38,8 @@ https://www.kaggle.com/c/global-wheat-detection
 
 #### Server Deployment
 
+I suggest that you deploy on a Linux server running Ubuntu 16.04. Start with a server that has 4GB of RAM and two CPUs. Once you get the app running you can then test it on smaller and cheaper servers.
+
 The frontend and backend code is available in this repo. The models were too large to be uploaded. Please download them from the Kaggle notebook. There are two models: seg_model.pt and reg_model.pt. Please put both models into the folder called 'flask' before uploading the folder called 'wheat-backend' to your server.
 
 
@@ -48,4 +50,4 @@ Julian Nash docker and flask video tutorial<br>
 https://www.youtube.com/watch?v=dVEjSmKFUVI
 
 
-The .dockerignore file may not be visible. Please create this file if you don't see it. I suggest that you deploy on a Linux server running Ubuntu 16.04. In this repo I've included a pdf that explains the steps for installing Docker and Docker Compose on a Linux server. There is folder called 'static' containing a predict.html file. This folder is not essential and can be deleted. 
+The .dockerignore file may not be visible. Please create this file if you don't see it. In this repo I've included a pdf that explains the steps for installing Docker and Docker Compose on a Linux server. There is folder called 'static' containing a predict.html file. This folder is not essential and can be deleted. 

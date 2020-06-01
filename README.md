@@ -50,4 +50,4 @@ Julian Nash docker and flask video tutorial<br>
 https://www.youtube.com/watch?v=dVEjSmKFUVI
 
 
-The .dockerignore file may not be visible. Please create this file if you don't see it. In this repo I've included a pdf that explains the steps for installing Docker and Docker Compose on a Linux server. There is folder called 'static' containing a predict.html file. This folder is not essential and can be deleted. 
+The .dockerignore file may not be visible. Please create this file if you don't see it. In this repo I've included a txt file that explains the steps for installing Docker and Docker Compose on a Linux server. There is folder called 'static' containing a predict.html file. This folder is not essential and can be deleted. 
